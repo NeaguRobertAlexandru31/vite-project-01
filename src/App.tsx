@@ -13,6 +13,16 @@ import './App.css'
 }} */
 
 /* Componente funzionale ES6 */
-const App = () => <h1>Hello World</h1>
+/* const App = () => <h1>Hello World</h1> */
+
+/* Componente funzionale con props (argomenti) */
+/* const App = (props: {name: string}) => <h1>Hello {props.name}</h1> */
+
+/* Componente di classe con props */
+class App extends Component <{name: string}>{
+  render() {
+    return <h1>Hello {this.props.name}</h1>
+  }
+}
 
 export default App;
