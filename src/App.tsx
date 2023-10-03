@@ -19,7 +19,7 @@ import './App.css'
 /* const App = (props: {name: string}) => <h1>Hello {props.name}</h1> */
 
 /* Componente di classe con props */
-class App extends Component <{name: string}>{
+class App extends Component <{name: string, bold?: boolean,}>{
   render() {
     return <h1>Hello {this.props.name}</h1>
   }
