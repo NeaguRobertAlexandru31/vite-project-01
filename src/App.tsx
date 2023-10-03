@@ -22,7 +22,7 @@ import './App.css'
 class App extends Component <{name: string, bold?: boolean,}>{
 
   render() {
-    const{name, bold} = this.props;
+    const{name, bold} = this.props; 
     const nameComponent = bold ? <b>{name}</b> : name;
     return <h1>Hello {nameComponent}</h1>
   }
