@@ -20,8 +20,11 @@ import './App.css'
 
 /* Componente di classe con props */
 class App extends Component <{name: string, bold?: boolean,}>{
+
   render() {
-    return <h1>Hello {this.props.name}</h1>
+    const{name, bold} = this.props;
+    const nameComponent = bold ? <b>{name}</b> : name;
+    return <h1>Hello {nameComponent}</h1>
   }
 }
 
