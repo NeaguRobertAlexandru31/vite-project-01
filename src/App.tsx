@@ -27,9 +27,15 @@ class App extends Component<{
     const { name, bold /* rotation */ } = this.props;
     const nameComponent = bold ? <b>{name}</b> : name;
     /*     const rotationComponent = rotation ? <p style={{transform: }}></p> */
+
+    const greeter = (/* name: string */) => {
+      const message = `Hello ${name}`
+      alert(message)
+    };
+
     return <div>
         <h1>Hello {nameComponent}</h1>
-        <button onClick={}>Count</button>
+        <button onClick={() => greeter()}>Count</button>
       </div>
     ;
   }
