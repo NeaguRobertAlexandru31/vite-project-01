@@ -5,6 +5,6 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App name = "world" bold />
+    <App name = "world" bold={true} />
   </React.StrictMode>,
 )

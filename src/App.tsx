@@ -1,5 +1,5 @@
-import { Component} from 'react';
-import './App.css'
+import { Component } from "react";
+import "./App.css";
 
 /* Componente funzionale */
 /* function App(){
@@ -19,12 +19,19 @@ import './App.css'
 /* const App = (props: {name: string}) => <h1>Hello {props.name}</h1> */
 
 /* Componente di classe con props */
-class App extends Component <{name: string, bold?: boolean,}>{
-
+class App extends Component<{
+  name: string;
+  bold?: boolean /* rotation?: number */;
+}> {
   render() {
-    const{name, bold} = this.props; 
+    const { name, bold /* rotation */ } = this.props;
     const nameComponent = bold ? <b>{name}</b> : name;
-    return <h1>Hello {nameComponent}</h1>
+    /*     const rotationComponent = rotation ? <p style={{transform: }}></p> */
+    return <div>
+        <h1>Hello {nameComponent}</h1>
+        <button onClick={}>Count</button>
+      </div>
+    ;
   }
 }
 
