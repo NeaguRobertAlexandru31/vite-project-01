@@ -19,25 +19,46 @@ import "./App.css";
 /* const App = (props: {name: string}) => <h1>Hello {props.name}</h1> */
 
 /* Componente di classe con props */
-class App extends Component<{
-  name: string;
-  bold?: boolean /* rotation?: number */;
-}> {
-  render() {
-    const { name, bold /* rotation */ } = this.props;
-    const nameComponent = bold ? <b>{name}</b> : name;
-    /*     const rotationComponent = rotation ? <p style={{transform: }}></p> */
 
-    const greeter = (/* name: string */) => {
-      const message = `Hello ${name}`
-      alert(message)
+type AppPropsType = { name: string; bold?: boolean };
+type AppStateType = { count: number };
+class App extends Component<AppPropsType, AppStateType> {
+  state = {
+    count: 0,
+  };
+
+  render() {
+    const { count } = this.state;
+    const { name, bold } = this.props;
+    const nameComponent = bold ? <b>{name}</b> : name;
+
+    const increment = () => {
+      this.setState({ count: count + 1 });
     };
 
-    return <div>
+    const decrement = () => {
+      this.setState({ count: count - 1 });
+    };
+
+    const reset = () => {
+      this.setState({ count: 0 });
+    };
+
+    return (
+      <div>
         <h1>Hello {nameComponent}</h1>
-        <button onClick={() => greeter()}>Count</button>
+        <h3>Counter: {count}</h3>
+        <div className="row">
+          <button onClick={() => increment()}>+</button>
+          <button onClick={() => decrement()} disabled={count <= 0}>-</button>
+        </div>
+        <div className="row">
+          <button onClick={() => reset()} disabled={count <= 0}>
+            Reset
+          </button>
+        </div>
       </div>
-    ;
+    );
   }
 }
 
