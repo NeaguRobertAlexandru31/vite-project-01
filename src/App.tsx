@@ -42,6 +42,10 @@ class App extends Component<AppPropsType, AppStateType> { // *1
       this.setState({ count: count - 1 });  // Setto lo stato di count a count-1 al click
     };
 
+    const enableIncrement = () => {
+      this.setState({ count: count * 2 });  // Setto lo stato di count a count-1 al click
+    };
+
     const reset = () => {
       if(count > 0){
         this.setState({ count: 0 });        // Setto lo stato di count a 0 al click, quando maggiore di 0 (if per controllo di sicurezza)
@@ -51,16 +55,11 @@ class App extends Component<AppPropsType, AppStateType> { // *1
     return (
       <div>
         <h1>Hello {nameComponent}</h1>
-        <h3>Counter: {count}</h3>                                               {/* Il counter mostra il valore della variabile */}
-        <div className="row">
-          <button onClick={() => increment()}>+</button>                        {/* Richiamo la funzione */}
-          <button onClick={() => decrement()} disabled={count <= 0}>-</button>  {/* Richiamo la funzione ma disabilito allo 0 */}
-        </div>
-        <div className="row">
-          <button onClick={() => reset()} disabled={count <= 0}>                {/* Richiamo la funzione ma disabilito allo 0 */}
-            Reset
-          </button>
-        </div>
+        <h3>Counter: {count}</h3>                                                         {/* Il counter mostra il valore della variabile */}
+          <button onClick={() => increment()}>+</button>                                  {/* Richiamo la funzione */}
+          <button onClick={() => decrement()} disabled={count <= 0}>-</button>            {/* Richiamo la funzione ma disabilito allo 0 */}
+          <button onClick={() => enableIncrement()} disabled={count <= 0}>X 2</button>    {/* Richiamo la funzione ma disabilito allo 0 */}
+          <button onClick={() => reset()} disabled={count <= 0}>Reset</button>            {/* Richiamo la funzione ma disabilito allo 0 */}
       </div>
     );
   }
